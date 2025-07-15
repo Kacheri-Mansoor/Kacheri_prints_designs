@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kacheri Prints & Designs - Interactive Business Website</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lemon" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .Main_title{
+            font-size: 75px;
+            margin-bottom: 30px;
+            margin-top: 0px;
+            color: #ffc83e;   
+            font-family: Lemon; 
+        }
+
+        .main_logo{
+            height: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9), rgba(59, 130, 246, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border-color: #3b82f6;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: #1e293b;
+        }
+        
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 1rem 0;
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+        }
+        
+        .team-card:hover {
+            transform: scale(1.08) rotate(2deg);
+            border-color: #3b82f6;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: all 0.6s;
+        }
+        
+        .team-card:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #60a5fa, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .counter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .calculator-card {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+        
+        .investment-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .investment-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            bottom: 15%;
+            width: 3px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            max-width: 350px;
+            margin: 0 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #0f172a;
+            border: 4px solid #3b82f6;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+        
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #3b82f6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+            z-index: 20;
+        }
+
+        .timeline-item:first-child::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -3rem;
+            width: 3px;
+            height: 3rem;
+            background: #0f172a;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+        .timeline-item:last-child::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -3rem;
+            width: 3px;
+            height: 3rem;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        
+        @media (max-width: 768px) {
+            .investment-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 4rem;
+            }
+            
+            .timeline-item::before {
+                left: 30px;
+            }
+            
+            .timeline-number {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                margin: 0 0 0 1rem;
+                max-width: none;
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 20px;
+            position: relative;
+            color: #e2e8f0;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #3b82f6;
+            opacity: 0.3;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .interactive-stats {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+        }
+        
+        .interactive-stats:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        /* Auto-hiding navbar styles */
+        .navbar {
+            transition: transform 0.3s ease-in-out;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-bottom: 1px solid #334155;
+        }
+        
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .navbar.visible {
+            transform: translateY(0);
+        }
+        
+        /* Centered map styles */
+        .map-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .map-wrapper {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #475569;
+        }
+        
+        .map-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .map-wrapper:hover .map-overlay {
+            opacity: 1;
+        }
+        
+        .map-open-btn {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: #3b82f6;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #475569;
+        }
+        
+        .map-open-btn:hover {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            transform: scale(1.05);
+            border-color: #3b82f6;
+        }
+
+        /* Dark theme specific styles */
+        .dark-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            color: #e2e8f0;
+        }
+
+        .dark-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .dark-section {
+            background: #0f172a;
+        }
+
+        .dark-section-alt {
+            background: #1e293b;
+        }
+
+        .dark-border {
+            border-color: #475569;
+        }
+
+        .dark-text {
+            color: #e2e8f0;
+        }
+
+        .dark-text-muted {
+            color: #94a3b8;
+        }
+
+        .dark-button {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: 1px solid #3b82f6;
+        }
+
+        .dark-button:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .dark-input {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        }
+
+        .dark-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .accordion-button {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border: 1px solid #475569;
+            color: #e2e8f0;
+        }
+
+        .accordion-button:hover {
+            background: linear-gradient(145deg, #334155, #475569);
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="dark-section">
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="notificationText">Welcome to Kacheri Prints & Designs!</span>
+    </div>
+
+    <!-- Header -->
+    <header id="navbar" class="navbar fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2" data-aos="fade-right">
+                    <div class="logo">
+                        <img src="./LOGO.jpg" alt="Kacheri Prints & Designs Logo" class="h-10 w-10 object-contain rounded-lg">
+                    </div>
+                    <h1 class="text-2xl font-bold dark-text">Kacheri Prints & Designs</h1>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <nav class="hidden md:flex space-x-8" data-aos="fade-left">
+                        <a href="#home" class="dark-text hover:text-blue-400 transition-colors relative group">
+                            Home
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#services" class="dark-text hover:text-blue-400 transition-colors relative group">
+                            Services
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#about" class="dark-text hover:text-blue-400 transition-colors relative group">
+                            About
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#contact" class="dark-text hover:text-blue-400 transition-colors relative group">
+                            Contact
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    </nav>
+                    <div class="md:hidden">
+                        <button onclick="toggleMobileMenu()" class="dark-text">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden dark-section-alt px-4 py-2 dark-border border-t">
+            <a href="#home" class="block py-2 dark-text hover:text-blue-400">Home</a>
+            <a href="#services" class="block py-2 dark-text hover:text-blue-400">Services</a>
+            <a href="#about" class="block py-2 dark-text hover:text-blue-400">About</a>
+            <a href="#contact" class="block py-2 dark-text hover:text-blue-400">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white pt-16">
+        <div id="particles-js"></div>
+        <div class="container mx-auto px-4 text-center hero-content">
+            <div class="main_logo">
+                <img src="1-removebg-preview.png" alt="image not found">
+            </div>    
+            <h1 class="Main_title">KACHERI PRINTS & DESIGNS</h1>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight" data-aos="fade-up">
+                <span id="typed-text"></span>
+            </h2>
+            <div class="mt-16" data-aos="fade-up" data-aos-delay="300">
+                <p class="text-lg mb-6 italic text-gray-300">Need to speak with a specific stylist?</p>
+                <button onclick="showNotification('Please call us at +91 82478 92087 to schedule an appointment!')" class="dark-button px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-phone mr-2"></i>
+                    Schedule a call
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Calculator -->
+    <section class="py-16 dark-section">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center dark-text mb-12" data-aos="fade-up">
+                    <span class="gradient-text">Investment Calculator</span>
+                </h2>
+                <div class="calculator-card p-8 rounded-lg shadow-xl" data-aos="fade-up">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 dark-text">Calculate Your Returns</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 dark-text">Investment Amount (₹)</label>
+                                    <input type="number" id="investmentAmount" value="150000" class="w-full p-3 rounded-lg dark-input" oninput="calculateReturns()">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 dark-text">Investment Period (Years)</label>
+                                    <input type="range" id="investmentPeriod" min="1" max="10" value="5" class="w-full" oninput="calculateReturns()">
+                                    <span id="periodDisplay" class="text-sm dark-text-muted">5 Years</span>
+                                </div>
+                                <div class="dark-card p-4 rounded-lg">
+                                    <p class="text-sm dark-text">Monthly Return: <span id="monthlyReturn" class="font-bold text-blue-400">₹12,000</span></p>
+                                    <p class="text-sm dark-text">Total Returns: <span id="totalReturns" class="font-bold text-green-400">₹7,20,000</span></p>
+                                    <p class="text-sm dark-text">Total Amount: <span id="totalAmount" class="font-bold text-purple-400">₹8,70,000</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <canvas id="investmentChart" style="height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 dark-section-alt">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center dark-text mb-12" data-aos="fade-up">
+                <span class="gradient-text">Our Services</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="service-card p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg mb-4 flex items-center justify-center">
+                        <img src="Multi function printer.png" 
+                         alt="Multi-Function Printer" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2 dark-text">Multi-Function Printer</h3>
+                    <p class="dark-text-muted text-center">High-quality printing, scanning, and copying solutions</p>
+                    <div class="mt-4 text-center">
+                        <button onclick="showServiceDetails('printer')" class="dark-button px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg mb-4 flex items-center justify-center">
+                        <img src="Colour Copier.png" 
+                         alt="Color Copier" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2 dark-text">Color Copier</h3>
+                    <p class="dark-text-muted text-center">Professional color copying with premium quality</p>
+                    <div class="mt-4 text-center">
+                        <button onclick="showServiceDetails('copier')" class="dark-button px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="service-card p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg mb-4 flex items-center justify-center">
+                        <img src="Document scanner.png" 
+                         alt="Document Scanner" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-2 dark-text">Document Scanner</h3>
+                    <p class="dark-text-muted text-center">Advanced document scanning and digital archiving</p>
+                    <div class="mt-4 text-center">
+                        <button onclick="showServiceDetails('scanner')" class="dark-button px-4 py-2 rounded-lg transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Investment Timeline -->
+            <div class="investment-timeline" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-center dark-text mb-12">Investment Process Timeline</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <div class="dark-card p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-bold text-blue-400 mb-3">Initial Investment</h4>
+                            <p class="dark-text-muted">Invest ₹1.5 lakhs with complete legal documentation and transparent process</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <div class="dark-card p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-bold text-green-400 mb-3">Machine Installation</h4>
+                            <p class="dark-text-muted">Professional installation and setup at corporate locations within 48 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <div class="dark-card p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-bold text-purple-400 mb-3">Monthly Returns</h4>
+                            <p class="dark-text-muted">Receive guaranteed ₹12,000 monthly returns for 5 years consistently</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <div class="dark-card p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-bold text-red-400 mb-3">Principal Return</h4>
+                            <p class="dark-text-muted">Full principal amount returned after 5 years with complete documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Service Details -->
+    <section class="py-16 dark-section">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8" data-aos="fade-up">
+                    <p class="dark-text-muted text-lg leading-relaxed mb-6">
+                        We assure complete support and service from our end to make the investment process smooth and reliable for our clients. From installation to ongoing maintenance of the photocopier machines at client locations, our dedicated team handles everything professionally.
+                    </p>
+                </div>
+
+                <!-- Enhanced Accordion -->
+                <div class="space-y-4" data-aos="fade-up">
+                    <div class="dark-border border rounded-lg overflow-hidden">
+                        <button onclick="toggleAccordion('installation')" class="accordion-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg mr-6 flex items-center justify-center">
+                                    <i class="fas fa-tools text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold dark-text">Machine Installation & Setup</h3>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-300 dark-text" id="installation-icon"></i>
+                        </button>
+                        <div id="installation-content" class="accordion-content">
+                            <div class="px-6 pb-4">
+                                <p class="dark-text-muted mb-4">Professional installation and setup of photocopier machines at client locations. Our expert technicians ensure proper configuration and optimal performance from day one.</p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="dark-card p-4 rounded-lg">
+                                        <h4 class="font-semibold text-blue-400 mb-2">Installation Features</h4>
+                                        <ul class="text-sm dark-text-muted space-y-1">
+                                            <li>• Professional setup within 24 hours</li>
+                                            <li>• Network configuration included</li>
+                                            <li>• Staff training provided</li>
+                                            <li>• Quality testing performed</li>
+                                        </ul>
+                                    </div>
+                                    <div class="dark-card p-4 rounded-lg">
+                                        <h4 class="font-semibold text-green-400 mb-2">Support Included</h4>
+                                        <ul class="text-sm dark-text-muted space-y-1">
+                                            <li>• 24/7 technical support</li>
+                                            <li>• Remote monitoring</li>
+                                            <li>• Preventive maintenance</li>
+                                            <li>• Replacement guarantee</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dark-border border rounded-lg overflow-hidden">
+                        <button onclick="toggleAccordion('maintenance')" class="accordion-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg mr-6 flex items-center justify-center">
+                                    <i class="fas fa-cog text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold dark-text">Routine Maintenance</h3>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-300 dark-text" id="maintenance-icon"></i>
+                        </button>
+                        <div id="maintenance-content" class="accordion-content">
+                            <div class="px-6 pb-4">
+                                <p class="dark-text-muted mb-4">Regular maintenance schedules to ensure machines operate at peak efficiency. Includes cleaning, calibration, and preventive care to minimize downtime.</p>
+                                <div class="dark-card p-4 rounded-lg">
+                                    <canvas id="maintenanceChart" style="height: 200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dark-border border rounded-lg overflow-hidden">
+                        <button onclick="toggleAccordion('support')" class="accordion-button w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700 transition-colors">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg mr-6 flex items-center justify-center">
+                                    <i class="fas fa-headset text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold dark-text">24/7 Technical Support</h3>
+                            </div>
+                            <i class="fas fa-chevron-down transition-transform duration-300 dark-text" id="support-icon"></i>
+                        </button>
+                        <div id="support-content" class="accordion-content">
+                            <div class="px-6 pb-4">
+                                <p class="dark-text-muted mb-4">Round-the-clock technical support with immediate response times and on-site service calls when needed.</p>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="dark-card p-4 rounded-lg text-center">
+                                        <i class="fas fa-phone text-2xl text-blue-400 mb-2"></i>
+                                        <h4 class="font-semibold dark-text">Phone Support</h4>
+                                        <p class="text-sm dark-text-muted">24/7 availability</p>
+                                    </div>
+                                    <div class="dark-card p-4 rounded-lg text-center">
+                                        <i class="fas fa-tools text-2xl text-green-400 mb-2"></i>
+                                        <h4 class="font-semibold dark-text">On-site Service</h4>
+                                        <p class="text-sm dark-text-muted">Within 2 hours</p>
+                                    </div>
+                                    <div class="dark-card p-4 rounded-lg text-center">
+                                        <i class="fas fa-desktop text-2xl text-purple-400 mb-2"></i>
+                                        <h4 class="font-semibold dark-text">Remote Access</h4>
+                                        <p class="text-sm dark-text-muted">Instant resolution</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 dark-section-alt">
+        <div class="hero-bg text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="border-4 border-white inline-block px-16 py-8" data-aos="zoom-in">
+                    <h2 class="text-5xl font-bold">About us</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 py-16">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold dark-text mb-8" data-aos="fade-up">
+                    <span class="gradient-text">Kacheri Prints & Designs</span>
+                </h3>
+                <div class="max-w-4xl mx-auto dark-text-muted text-lg leading-relaxed space-y-6" data-aos="fade-up">
+                    <p>
+                        <strong class="dark-text">Kacheri Prints & Designs</strong> is your trusted partner for high-quality printing solutions and creative design services. We specialize in offering reliable photocopier machine rentals, printing services, and custom design solutions tailored to meet the needs of corporate offices, educational institutions, and individuals.
+                    </p>
+                    <p>
+                        Our services include black & white and color A4 printing, photocopying, and on-demand design for business cards, flyers, brochures, posters, and more. Whether you're a startup, a student, or a large organization, we bring efficiency, creativity, and professional quality to every project.
+                    </p>
+                    <p>
+                        At <strong class="dark-text">Kacheri Prints & Designs</strong>, we focus on affordability, reliability, and customer satisfaction—backed by a dedicated support team that ensures smooth service at every step. With a strong commitment to excellence, we aim to become a one-stop destination for all your printing and document service needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Team Section -->
+    <section class="py-16 dark-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center dark-text mb-12" data-aos="fade-up">
+                <span class="gradient-text">Board of Directors</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kacheri Mansoor Ahmed -->
+                <div class="team-card text-center p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden shadow-lg">
+                        <img src="Mansoor Photo.jpg" 
+                            alt="Kacheri Mansoor Ahmed - Founder & CEO" 
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback if image doesn't load -->
+                        <div class="w-full h-full bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center" style="display: none;">
+                            <i class="fas fa-user text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold dark-text mb-2">Kacheri Mansoor Ahmed</h3>
+                    <p class="dark-text-muted mb-4">(Founder & CEO)</p>
+                </div>
+
+                <!-- Vikram Rangarajan -->
+                <div class="team-card text-center p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden shadow-lg">
+                        <img src="./images/vikram-rangarajan.jpg" 
+                            alt="Vikram Rangarajan - Co-Founder" 
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback if image doesn't load -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center" style="display: none;">
+                            <i class="fas fa-user-tie text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold dark-text mb-2">Vikram Rangarajan</h3>
+                    <p class="dark-text-muted mb-4">(Co-Founder)</p>
+                </div>
+
+                <!-- Kacheri Inayath Ali -->
+                <div class="team-card text-center p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden shadow-lg">
+                        <img src="Inayath Photo.jpg" 
+                            alt="Kacheri Inayath Ali - Operations Manager" 
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback if image doesn't load -->
+                        <div class="w-full h-full bg-gradient-to-br from-green-600 to-blue-600 flex items-center justify-center" style="display: none;">
+                            <i class="fas fa-user text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold dark-text mb-2">Kacheri Inayath Ali</h3>
+                    <p class="dark-text-muted mb-4">(Operations Manager)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 dark-section-alt">
+        <div class="hero-bg text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="border-4 border-white inline-block px-16 py-8" data-aos="zoom-in">
+                    <h2 class="text-5xl font-bold">Contact us</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold dark-text mb-6">Connect Us:</h3>
+                    <div class="space-y-4">
+                        <p class="text-lg dark-text">
+                            <strong class="text-blue-400">+91 8247892087</strong> or <strong class="text-blue-400">kacherprintsdesigns@gmail.com</strong>
+                        </p>
+                        <p class="dark-text-muted">Monday to Saturday 10 AM – 7 PM</p>
+                        <p class="dark-text-muted">Closed on Sundays</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold dark-text mb-6">Visit us</h3>
+                    <p class="text-lg dark-text-muted mb-6">
+                        10, X Vasudev Layout, Somasundarapalya, HSR Layout, Bengaluru - 560102
+                    </p>
+                    <div class="flex justify-center space-x-6 mb-8">
+                        <a href="https://wa.me/918247892087" target="_blank" class="text-green-400 hover:text-green-300 text-3xl transition-all transform hover:scale-110">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kacheri.co?igsh=MWEyamZjYXBrY2Zodg%3D%3D&utm_source=qr" class="text-pink-400 hover:text-pink-300 text-3xl transition-all transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="http://www.linkedin.com/in/kacheri-mansoor-ahamed-7b4593348" class="text-blue-400 hover:text-blue-300 text-3xl transition-all transform hover:scale-110">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Centered Interactive Map -->
+                <div class="map-container" data-aos="fade-up">
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8264885609546!2d77.63867931482183!3d12.918184990896068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1496c6e8c8b5%3A0x5d9c7d1c5e7f5a6f!2sHSR%20Layout%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1642678901234!5m2!1sen!2sin"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        
+                        <!-- Interactive overlay -->
+                        <div class="map-overlay">
+                            <a href="https://maps.app.goo.gl/zFaePnUVBbWtqubR6" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="map-open-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-6">
+                        <p class="dark-text-muted text-lg">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>
+                            HSR Layout, Bengaluru - Find us easily!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark-section py-8 border-t dark-border">
+        <div class="container mx-auto px-4 text-center">
+            <p class="dark-text-muted">© 2025 Kacheri Prints & Designs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-hiding navbar functionality
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                navbar.classList.add('hidden');
+                navbar.classList.remove('visible');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('hidden');
+                navbar.classList.add('visible');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize Particles.js with dark theme colors
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#60a5fa' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#60a5fa', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+            },
+            retina_detect: true
+        });
+
+        // Initialize Typed.js
+        var typed = new Typed('#typed-text', {
+            strings: ["Let your money work for you", "Invest once, earn monthly", "Grow steadily with guaranteed returns"],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Initialize Testimonials Swiper
+        var swiper = new Swiper('.testimonial-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText);
+                const increment = target / 200;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounters(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Investment Calculator
+        let investmentChart;
+
+        function calculateReturns() {
+            const amount = parseFloat(document.getElementById('investmentAmount').value);
+            const period = parseFloat(document.getElementById('investmentPeriod').value);
+            
+            document.getElementById('periodDisplay').textContent = period + ' Years';
+            
+            const monthlyReturn = (amount * 0.08); // 8% monthly return
+            const totalReturns = monthlyReturn * 12 * period;
+            const totalAmount = amount + totalReturns;
+            
+            document.getElementById('monthlyReturn').textContent = '₹' + monthlyReturn.toLocaleString();
+            document.getElementById('totalReturns').textContent = '₹' + totalReturns.toLocaleString();
+            document.getElementById('totalAmount').textContent = '₹' + totalAmount.toLocaleString();
+            
+            updateInvestmentChart(amount, totalReturns, totalAmount);
+        }
+
+        function updateInvestmentChart(principal, returns, total) {
+            const ctx = document.getElementById('investmentChart').getContext('2d');
+            
+            if (investmentChart) {
+                investmentChart.destroy();
+            }
+            
+            investmentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Principal', 'Returns'],
+                    datasets: [{
+                        data: [principal, returns],
+                        backgroundColor: ['#3b82f6', '#8b5cf6'],
+                        borderWidth: 2,
+                        borderColor: '#1e293b'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#e2e8f0'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize charts
+        window.onload = function() {
+            calculateReturns();
+            showNotification('Welcome to Kacheri Prints & Designs!');
+        };
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Enhanced Accordion
+        function toggleAccordion(id) {
+            const content = document.getElementById(id + '-content');
+            const icon = document.getElementById(id + '-icon');
+            
+            // Close all other accordions
+            document.querySelectorAll('.accordion-content').forEach(c => {
+                if (c !== content && c.classList.contains('active')) {
+                    c.classList.remove('active');
+                }
+            });
+            
+            document.querySelectorAll('button i[id$="-icon"]').forEach(i => {
+                if (i !== icon) {
+                    i.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current accordion
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+                
+                // Initialize maintenance chart if opening maintenance accordion
+                if (id === 'maintenance') {
+                    initMaintenanceChart();
+                }
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Maintenance Chart
+        function initMaintenanceChart() {
+            const ctx = document.getElementById('maintenanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Machine Uptime %',
+                        data: [98, 99, 97, 99, 98, 99],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e2e8f0'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#e2e8f0'
+                            },
+                            grid: {
+                                color: '#475569'
+                            }
+                        },
+                        y: {
+                            beginAtZero: false,
+                            min: 95,
+                            max: 100,
+                            ticks: {
+                                color: '#e2e8f0'
+                            },
+                            grid: {
+                                color: '#475569'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Notification System
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Service Details Modal
+        function showServiceDetails(service) {
+            let message = '';
+            switch(service) {
+                case 'printer':
+                    message = 'Multi-Function Printer details: High-speed printing, scanning, and copying with network connectivity.';
+                    break;
+                case 'copier':
+                    message = 'Color Copier details: Professional color copying with superior quality and fast processing.';
+                    break;
+                case 'scanner':
+                    message = 'Document Scanner details: Advanced scanning with digital archiving and cloud integration.';
+                    break;
+            }
+            showNotification(message);
+        }
+
+        // Team Member Details
+        function showMemberDetails(member) {
+            let message = '';
+            switch(member) {
+                case 'mansoor':
+                    message = 'Kacheri Mansoor Ahmed - Founder & CEO with 10+ years in printing industry.';
+                    break;
+                case 'vikram':
+                    message = 'Vikram Rangarajan - Co-Founder specializing in business development and client relations.';
+                    break;
+                case 'inayath':
+                    message = 'Kacheri Inayath Ali - Operations Manager ensuring smooth service delivery.';
+                    break;
+            }
+            showNotification(message);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
